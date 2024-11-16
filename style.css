@@ -1,36 +1,73 @@
-a {text-decoration: none}
-a:active {color: #3030a0}
-a:hover {bottom: 1px; position: relative; text-decoration: underline}
-a:link {color: #000080}
-a:visited {color: #6060c0}
-body {background-color: #c0c8d0; color: #000000}
-td.against {background-color: #d0c0c8; font-family: monospace}
-td.cfail1 {background-color: #ff5050}
-td.cfail2 {background-color: #ff6060}
-td.cfail3 {background-color: #ff7070}
-td.cfail4 {background-color: #ff8080}
-td.cfail5 {background-color: #ff9090}
-td.cfail6 {background-color: #ffa0a0}
-td.cfail7 {background-color: #ffb0b0}
-td.cfail8 {background-color: #ffc0c0}
-td.cfail9 {background-color: #ffd0d0}
-td.cfaila {background-color: #ffe0e0}
-td.cfailb {background-color: #fff0f0}
-td.cpass1 {background-color: #50ff50}
-td.cpass2 {background-color: #60ff60}
-td.cpass3 {background-color: #70ff70}
-td.cpass4 {background-color: #80ff80}
-td.cpass5 {background-color: #90ff90}
-td.cpass6 {background-color: #a0ffa0}
-td.cpass7 {background-color: #b0ffb0}
-td.cpass8 {background-color: #c0ffc0}
-td.cpass9 {background-color: #d0ffd0}
-td.cpassa {background-color: #e0ffe0}
-td.cpassb {background-color: #f0fff0}
-td.for {background-color: #c8d0c0; font-family: monospace}
-td.loss {background-color: #d0c0c8}
-td.win {background-color: #c8d0c0; font-weight: bold}
-.cand {font-family: monospace}
-.email {font-family: monospace}
-.endtag {font-size: 60%; font-style: italic; margin-left: 2em}
-.url {font-family: monospace}
+@charset "UTF-8";
+
+html {
+   box-sizing: border-box;
+}
+
+*, *:before, *:after {
+   box-sizing: inherit;
+}
+
+a {
+   text-decoration: none;
+}
+
+a:active {
+   color: #3030a0;
+}
+
+a:hover {
+   bottom: 1px;
+   position: relative;
+   text-decoration: underline;
+}
+
+a:link {
+   color: #000080;
+}
+
+a:visited {
+   color: #6060c0;
+}
+
+body {
+   background-color: #c0c8d0;
+   color: #000000;
+}
+
+td.against {
+   background-color: #d0c0c8;
+   font-family: monospace;
+}
+
+td.for {
+   background-color: #c8d0c0;
+   font-family: monospace;
+}
+
+td.loss {
+   background-color: #d0c0c8;
+}
+
+td.win {
+   background-color: #c8d0c0;
+   font-weight: bold;
+}
+
+.cand {
+   font-family: monospace;
+}
+
+.email {
+   font-family: monospace;
+}
+
+.endtag {
+   font-size: 60%;
+   font-style: italic;
+   margin-left: 2em;
+}
+
+.url {
+   font-family: monospace;
+}
