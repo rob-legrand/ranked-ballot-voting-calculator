@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>Evaluation of ranked-ballot voting methods</title>
+<link href="style.css" rel="stylesheet" type="text/css"></head>
+<body alink="#3030a0" bgcolor="#c0c8d0" link="#000080" text="#000000" vlink="#6060c0">
+<h1>Evaluation of ranked-ballot voting methods</h1>
+<p>
+Note that, according to Gibbard and Satterthwaite, all of the systems I am considering here are sometimes vulnerable to voter
+manipulation.&nbsp; Satisfying the criteria I find important tends to minimize chances for manipulation.
+</p><hr>
+<h3>Summary of the methods' criterion compliances</h3>
+<p><table border cellpadding=3><tr align="center">
+   <th></th>
+   <th>Baldwin</th>
+   <th>Borda</th>
+   <th>Bucklin</th>
+   <th>Carey</th>
+   <th>Coombs</th>
+   <th>Copeland</th>
+   <th>Dodgson</th>
+   <th>Hare</th>
+   <th>Nanson</th>
+   <th>Raynaud</th>
+   <th>Schulze</th>
+   <th>Simpson</th>
+   <th>Tideman</th>
+</tr><tr align="center">
+   <th>Pareto-optimal?</th>
+   <td class="cpass1">YES</td>
+   <td class="cpass1">YES</td>
+   <td class="cpass1">YES</td>
+   <td class="cpass1">YES</td>
+   <td class="cpass1">YES</td>
+   <td class="cpass1">YES</td>
+   <td class="cpass1">YES</td>
+   <td class="cpass1">YES</td>
+   <td class="cpass1">YES</td>
+   <td class="cpass1">YES</td>
+   <td class="cpass1">YES</td>
+   <td class="cpass1">YES</td>
+   <td class="cpass1">YES</td>
+</tr><tr align="center">
+   <th>majority?</th>
+   <td class="cpass2">YES</td>
+   <td class="cfail2">NO</td>
+   <td class="cpass2">YES</td>
+   <td class="cpass2">YES</td>
+   <td class="cfail2">NO</td>
+   <td class="cpass2">YES</td>
+   <td class="cpass2">YES</td>
+   <td class="cpass2">YES</td>
+   <td class="cpass2">YES</td>
+   <td class="cpass2">YES</td>
+   <td class="cpass2">YES</td>
+   <td class="cpass2">YES</td>
+   <td class="cpass2">YES</td>
+</tr><tr align="center">
+   <th>Condorcet?</th>
+   <td class="cpass3">YES</td>
+   <td class="cfail3">NO</td>
+   <td class="cfail3">NO</td>
+   <td class="cfail3">NO</td>
+   <td class="cfail3">NO</td>
+   <td class="cpass3">YES</td>
+   <td class="cpass3">YES</td>
+   <td class="cfail3">NO</td>
+   <td class="cpass3">YES</td>
+   <td class="cpass3">YES</td>
+   <td class="cpass3">YES</td>
+   <td class="cpass3">YES</td>
+   <td class="cpass3">YES</td>
+</tr><tr align="center">
+   <th>mutual majority?</th>
+   <td class="cpass4">YES</td>
+   <td class="cfail4">NO</td>
+   <td class="cpass4">YES</td>
+   <td class="cfail4">NO</td>
+   <td class="cfail4">NO</td>
+   <td class="cpass4">YES</td>
+   <td class="cfail4">NO</td>
+   <td class="cpass4">YES</td>
+   <td class="cpass4">YES</td>
+   <td class="cpass4">YES</td>
+   <td class="cpass4">YES</td>
+   <td class="cfail4">NO</td>
+   <td class="cpass4">YES</td>
+</tr><tr align="center">
+   <th>clone-independent?</th>
+   <td class="cfail5">NO</td>
+   <td class="cfail5">NO</td>
+   <td class="cfail5">NO</td>
+   <td class="cfail5">NO</td>
+   <td class="cfail5">NO</td>
+   <td class="cfail5">NO</td>
+   <td class="cfail5">NO</td>
+   <td class="cpass5">YES</td>
+   <td class="cfail5">NO</td>
+   <td class="cpass5">YES</td>
+   <td class="cpass5">YES</td>
+   <td class="cfail5">NO</td>
+   <td class="cpass5">YES</td>
+</tr><tr align="center">
+   <th>monotonic?</th>
+   <td class="cfail6">NO</td>
+   <td class="cpass6">YES</td>
+   <td class="cpass6">YES</td>
+   <td class="cfail6">NO</td>
+   <td class="cfail6">NO</td>
+   <td class="cpass6">YES</td>
+   <td class="cpass6">YES</td>
+   <td class="cfail6">NO</td>
+   <td class="cfail6">NO</td>
+   <td class="cfail6">NO</td>
+   <td class="cpass6">YES</td>
+   <td class="cpass6">YES</td>
+   <td class="cpass6">YES</td>
+</tr><tr align="center">
+   <th>Smith?</th>
+   <td class="cpass7">YES</td>
+   <td class="cfail7">NO</td>
+   <td class="cfail7">NO</td>
+   <td class="cfail7">NO</td>
+   <td class="cfail7">NO</td>
+   <td class="cpass7">YES</td>
+   <td class="cfail7">NO</td>
+   <td class="cfail7">NO</td>
+   <td class="cpass7">YES</td>
+   <td class="cpass7">YES</td>
+   <td class="cpass7">YES</td>
+   <td class="cfail7">NO</td>
+   <td class="cpass7">YES</td>
+</tr><tr align="center">
+   <th>reverse-symmetric?</th>
+   <td class="cfail8">NO</td>
+   <td class="cpass8">YES</td>
+   <td class="cfail8">NO</td>
+   <td class="cfail8">NO</td>
+   <td class="cfail8">NO</td>
+   <td class="cpass8">YES</td>
+   <td class="cfail8">NO</td>
+   <td class="cfail8">NO</td>
+   <td class="cfail8">NO</td>
+   <td class="cfail8">NO</td>
+   <td class="cpass8">YES</td>
+   <td class="cfail8">NO</td>
+   <td class="cpass8">YES</td>
+</tr><tr align="center">
+   <th>reinforcing?</th>
+   <td class="cfail9">NO</td>
+   <td class="cpass9">YES</td>
+   <td class="cfail9">NO</td>
+   <td class="cfail9">NO</td>
+   <td class="cfail9">NO</td>
+   <td class="cfail9">NO</td>
+   <td class="cfail9">NO</td>
+   <td class="cfail9">NO</td>
+   <td class="cfail9">NO</td>
+   <td class="cfail9">NO</td>
+   <td class="cfail9">NO</td>
+   <td class="cfail9">NO</td>
+   <td class="cfail9">NO</td>
+</tr><tr align="center">
+   <th>Schwartz?</th>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cpassa">YES</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+</tr><tr align="center">
+   <th>nonmanipulable?</th>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+   <td class="cfaila">NO</td>
+</tr></table></p>
+<p><table border=0 cellpadding=0 cellspacing=0>
+<tr align="left"><td><span class="cand"># Coombs fails reinforcement</span></td></tr>
+<tr align="left"><td><span class="cand"># precinct 1</span></td></tr>
+<tr align="left"><td><span class="cand">8:B&gt;C&gt;A&gt;D</span></td></tr>
+<tr align="left"><td><span class="cand">6:C&gt;D&gt;A&gt;B</span></td></tr>
+<tr align="left"><td><span class="cand">4:D&gt;B&gt;C&gt;A</span></td></tr>
+<tr align="left"><td><span class="cand"># precinct 2</span></td></tr>
+<tr align="left"><td><span class="cand">8:B&gt;A&gt;D&gt;C</span></td></tr>
+<tr align="left"><td><span class="cand">2:B&gt;C&gt;D&gt;A</span></td></tr>
+<tr align="left"><td><span class="cand">6:C&gt;A&gt;D&gt;B</span></td></tr>
+<tr align="left"><td><span class="cand">2:C&gt;B&gt;D&gt;A</span></td></tr>
+<tr align="left"><td><span class="cand">2:D&gt;B&gt;C&gt;A</span></td></tr>
+</table></p>
+<hr>
+<p><a href="index.html">Back to Ranked-ballot voting methods</a></p>
+</body></html>

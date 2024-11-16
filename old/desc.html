@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>Descriptions of ranked-ballot voting methods</title>
+<link href="style.css" rel="stylesheet" type="text/css"></head>
+<body alink="#3030a0" bgcolor="#c0c8d0" link="#000080" text="#000000" vlink="#6060c0">
+<h1>Descriptions of ranked-ballot voting methods</h1>
+<p>
+These methods assume input of ranked ballots.&nbsp; The ballot <span class="cand">A&gt;B&gt;C</span> means the voter
+prefers candidate <span class="cand">A</span> to candidate <span class="cand">B</span>, <span class="cand">B</span> to
+<span class="cand">C</span> and <span class="cand">A</span> to <span class="cand">C</span>.&nbsp; The line
+</p><table border=0 cellpadding=0 cellspacing=0>
+<tr align="right"><td><span class="cand">4:A&gt;B&gt;C</span></td></tr>
+</table><p>
+means four of that same ballot.&nbsp; Most of the methods allow input of tied preferences, which are shown using an
+equals sign, so
+</p><table border=0 cellpadding=0 cellspacing=0>
+<tr align="right"><td><span class="cand">3:A&gt;B=C&gt;D</span></td></tr>
+</table><p>
+means three voters like <span class="cand">A</span> most and <span class="cand">D</span> least, but have no preference
+between <span class="cand">B</span> and <span class="cand">C</span>.
+</p><p>
+All of these methods rightly choose the majority winner when there are only two candidates, but they often differ when
+there are three or more.
+</p><hr><p>
+<strong><a name="borda">Borda</a></strong> is a point-count system.&nbsp; Each candidate is given a score equal to the
+total number of times that candidate is ranked over another minus the total number of times that candidate is ranked
+under another.&nbsp; For example, if there are 32 voters who vote
+</p><table border=0 cellpadding=0 cellspacing=0>
+<tr align="right"><td><span class="cand">14:Alan&gt;Beth&gt;Carl</span></td></tr>
+<tr align="right"><td><span class="cand">11:Beth&gt;Carl&gt;Alan</span></td></tr>
+<tr align="right"><td><span class="cand">7:Carl&gt;Alan&gt;Beth</span></td></tr>
+</table><p>
+<span class="cand">Alan</span> is ranked over another candidate 35 times (21 over <span class="cand">Beth</span> and 14
+over <span class="cand">Carl</span>) and under another candidate 29 times (11 under <span class="cand">Beth</span> and 18
+under <span class="cand">Carl</span>), so his Borda score is 35 minus 29, or 6.  Similarly,
+<span class="cand">Beth</span> receives a score of 8 (11+25-21-7) and <span class="cand">Carl</span> a score of -14
+(18+7-14-25).&nbsp; (Equivalently, the following could be used: a candidate gets no points for a last-place vote, one
+point for a second-to-last-place vote, on up to first place.)&nbsp; So Borda picks <span class="cand">Beth</span> in this
+election.&nbsp; Borda is sometimes considered the best ranked-ballot method when voters are sincere, but it&rsquo;s
+probably the most easily manipulated.&nbsp; It also fails to be independent of clones:&nbsp; Consider an election with
+three candidates.&nbsp; <span class="cand">Eric</span> is right-wing and <span class="cand">Fran</span> and
+<span class="cand">Gary</span> are left-wing.&nbsp; 63% of the voters are right-wing, 37% are left-wing and all of the
+voters prefer <span class="cand">Fran</span> to <span class="cand">Gary</span> because of a scandal involving
+<span class="cand">Gary</span>, so the sincere votes are
+</p><table border=0 cellpadding=0 cellspacing=0>
+<tr align="right"><td><span class="cand">63:Eric&gt;Fran&gt;Gary</span></td></tr>
+<tr align="right"><td><span class="cand">37:Fran&gt;Gary&gt;Eric</span></td></tr>
+</table><p>
+Borda gives the win to <span class="cand">Fran</span> even though <span class="cand">Eric</span> received a strong
+majority of first-place votes and would have won handily if <span class="cand">Gary</span> hadn&rsquo;t run, showing that
+parties have incentive to saturate an election with their candidates under Borda.&nbsp; <span class="cand">Fran</span>
+and <span class="cand">Gary</span> are called clones in this election because they&rsquo;re next to each other on every
+ballot.&nbsp; Clone-independent methods give the same results if a group of clones is replaced by one candidate; any
+reasonable clone-independent method would choose <span class="cand">Eric</span> in this election, removing the
+candidate-saturation incentive.
+</p><hr><p>
+<strong><a name="nanson">Nanson</a></strong>, <strong><a name="baldwin">Baldwin</a></strong> and
+<strong><a name="rouse">Rouse</a></strong> are recursive elimination methods that use Borda.&nbsp; At each step, Nanson
+eliminates all candidates that have a negative Borda score, then calculates new Borda scores based on the uneliminated
+candidates and repeats.&nbsp; Baldwin eliminates only the candidate with the single lowest Borda score before
+recalculating.&nbsp; Rouse is like Baldwin with an extra step of recursion: it successively eliminates the candidate with
+the <em>highest</em> Borda score until one is left, then it eliminates that candidate from the original list; this step
+is repeated until one is left.&nbsp; For example, given the votes
+</p><table border=0 cellpadding=0 cellspacing=0>
+<tr align="right"><td><span class="cand">14:Jana&gt;Kurt&gt;Lisa</span></td></tr>
+<tr align="right"><td><span class="cand">7:Kurt&gt;Lisa&gt;Jana</span></td></tr>
+<tr align="right"><td><span class="cand">11:Lisa&gt;Jana&gt;Kurt</span></td></tr>
+</table><p>
+Nanson would eliminate <span class="cand">Kurt</span> and <span class="cand">Lisa</span>, who have Borda scores of -8 and
+-6, making <span class="cand">Jana</span> the winner.&nbsp; Baldwin would eliminate only <span class="cand">Kurt</span>
+at first; recalculating the Borda scores without <span class="cand">Kurt</span> gives <span class="cand">Jana</span> -4
+and <span class="cand">Lisa</span> 4, so <span class="cand">Lisa</span> would win.&nbsp; Rouse would excuse
+<span class="cand">Jana</span> from being eliminated first since she has the best Borda score; without
+<span class="cand">Jana</span>, <span class="cand">Kurt</span> would beat <span class="cand">Lisa</span> 10 to -10, so
+<span class="cand">Lisa</span> would be eliminated first.&nbsp; With <span class="cand">Lisa</span> gone,
+<span class="cand">Jana</span> and <span class="cand">Kurt</span> would have Borda scores of 18 and -18, so Rouse would
+pick <span class="cand">Jana</span> as the winner.
+</p><hr><p>
+<strong><a name="hare">Hare</a></strong>, <strong><a name="carey">Carey</a></strong> and
+<strong><a name="coombs">Coombs</a></strong> are also elimination methods.&nbsp; Hare is the original name of the
+infamous Instant Runoff Voting, which seems to many the most intuitive ranked-ballot extension of our current plurality
+system.&nbsp; At first only the first-rank votes are counted.&nbsp; The candidate with the smallest first-rank total is
+eliminated from the ballots, possibly adding to other candidates&rsquo; first-rank totals.&nbsp; This step is repeated
+until a winner is left.&nbsp; Carey (a generalization of Craig Carey&rsquo;s three-candidate IFPP method) has a similar
+approach, but instead of eliminating only one candidate per step, it eliminates all candidates with below-average
+first-rank totals.&nbsp; Coombs is much like Hare in reverse:&nbsp; The candidate with the largest last-rank total is
+eliminated.&nbsp; The last-rank totals are recalculated and the step repeated until only one remains.&nbsp; For example,
+in the election
+</p><table border=0 cellpadding=0 cellspacing=0>
+<tr align="right"><td><span class="cand">9:Katy&gt;Luke&gt;Mary</span></td></tr>
+<tr align="right"><td><span class="cand">4:Luke&gt;Mary&gt;Katy</span></td></tr>
+<tr align="right"><td><span class="cand">6:Mary&gt;Luke&gt;Katy</span></td></tr>
+</table><p>
+Hare eliminates <span class="cand">Luke</span> (with a first-rank total of 4) and chooses <span class="cand">Mary</span>
+over <span class="cand">Katy</span> (10 to 9), while Carey eliminates both <span class="cand">Luke</span> and
+<span class="cand">Mary</span> in the first step (since the average first-rank total is 6.333) and picks
+<span class="cand">Katy</span>.&nbsp; Coombs eliminates <span class="cand">Katy</span> and chooses
+<span class="cand">Luke</span> over <span class="cand">Mary</span>.&nbsp; Notice that under Hare, the
+<span class="cand">Katy</span>-first voters are punished for voting sincerely; they could have prevented their last
+choice from winning by insincerely voting <span class="cand">Luke&gt;Katy&gt;Mary</span> instead.&nbsp; Also, under
+Carey, the <span class="cand">Luke</span>- and <span class="cand">Mary</span>-first voters are punished for voting
+sincerely; they would be better served by deciding collectively which candidate to support, thus keeping
+<span class="cand">Katy</span> from winning, much as in our current plurality system.&nbsp; Of all the methods, Hare,
+Carey and Coombs consider the smallest amount of ballot information at any one time.
+</p><hr><p>
+<strong><a name="bucklin">Bucklin</a></strong> tries to find a majority for some candidate by counting only the
+first-place votes.&nbsp; If no candidate has a majority of votes, all second-place votes are included in the count, then
+third-place, etc., until some candidate has more than half the number of voters.&nbsp; Consider the following election:
+</p><table border=0 cellpadding=0 cellspacing=0>
+<tr align="right"><td><span class="cand">7:Mark&gt;Nell&gt;Owen</span></td></tr>
+<tr align="right"><td><span class="cand">2:Nell&gt;Mark&gt;Owen</span></td></tr>
+<tr align="right"><td><span class="cand">3:Owen&gt;Mark&gt;Nell</span></td></tr>
+<tr align="right"><td><span class="cand">5:Owen&gt;Nell&gt;Mark</span></td></tr>
+</table><p>
+No candidate has a majority of first-place votes, so second-place votes are added to the counts and
+<span class="cand">Nell</span> wins with 14 votes.&nbsp; Note that <span class="cand">Mark</span>&rsquo;s 12 votes also
+constitute a majority at that point, but <span class="cand">Nell</span> is still the sole Bucklin winner (even though
+<span class="cand">Mark</span> would have beaten <span class="cand">Nell</span> in a one-on-one race).
+</p><hr><p>
+Probably the most desirable property of a method is resistance to manipulation; as often as possible, the best strategic
+vote should be a sincere vote.&nbsp; (Gibbard and Satterthwaite proved that no ranked-ballot method can be strategy-free
+in all situations, but insincere voting can be made difficult.)&nbsp; The above methods are often easy for voters to
+manipulate when there are more than two candidates, but with only two candidates the best voting strategy is always
+sincere.&nbsp; This insight suggests a new approach: comparing candidates one-on-one, that is, treating the
+multicandidate election as a series of two-candidate elections.&nbsp; The rest of the methods use a pairwise matrix,
+calculated in one pass through the ranked ballots, that tells how often each candidate was ranked over each other
+candidate (tied ranks are counted as half-votes for each side).&nbsp; For example, consider the following five-candidate
+election:
+</p><table border=0 cellpadding=0 cellspacing=0>
+<tr align="right"><td><span class="cand">98:Abby&gt;Cora&gt;Erin&gt;Dave&gt;Brad</span></td></tr>
+<tr align="right"><td><span class="cand">64:Brad&gt;Abby&gt;Erin&gt;Cora&gt;Dave</span></td></tr>
+<tr align="right"><td><span class="cand">12:Brad&gt;Abby&gt;Erin&gt;Dave&gt;Cora</span></td></tr>
+<tr align="right"><td><span class="cand">98:Brad&gt;Erin&gt;Abby&gt;Cora&gt;Dave</span></td></tr>
+<tr align="right"><td><span class="cand">13:Brad&gt;Erin&gt;Abby&gt;Dave&gt;Cora</span></td></tr>
+<tr align="right"><td><span class="cand">125:Brad&gt;Erin&gt;Dave&gt;Abby&gt;Cora</span></td></tr>
+<tr align="right"><td><span class="cand">124:Cora&gt;Abby&gt;Erin&gt;Dave&gt;Brad</span></td></tr>
+<tr align="right"><td><span class="cand">76:Cora&gt;Erin&gt;Abby&gt;Dave&gt;Brad</span></td></tr>
+<tr align="right"><td><span class="cand">21:Dave&gt;Abby&gt;Brad&gt;Erin&gt;Cora</span></td></tr>
+<tr align="right"><td><span class="cand">30:Dave&gt;Brad&gt;Abby&gt;Erin&gt;Cora</span></td></tr>
+<tr align="right"><td><span class="cand">98:Dave&gt;Brad&gt;Erin&gt;Cora&gt;Abby</span></td></tr>
+<tr align="right"><td><span class="cand">139:Dave&gt;Cora&gt;Abby&gt;Brad&gt;Erin</span></td></tr>
+<tr align="right"><td><span class="cand">23:Dave&gt;Cora&gt;Brad&gt;Abby&gt;Erin</span></td></tr>
+</table><p>
+The corresponding pairwise matrix is
+</p><table border cellpadding=3>
+<tr align="center"><td colspan=2 rowspan=2></td><th colspan=5>against</th></tr>
+<tr align="center"><td class="against">Abby</td><td class="against">Brad</td><td class="against">Cora</td><td class="against">Dave</td><td class="against">Erin</td></tr>
+<tr align="center"><th rowspan=5>for</th><td class="for">Abby</td><td></td><td class="loss">458</td><td class="win">461</td><td class="win">485</td><td class="win">511</td></tr>
+<tr align="center"><td class="for">Brad</td><td class="win">463</td><td></td><td class="win">461</td><td class="loss">312</td><td class="win">623</td></tr>
+<tr align="center"><td class="for">Cora</td><td class="loss">460</td><td class="loss">460</td><td></td><td class="loss">460</td><td class="loss">460</td></tr>
+<tr align="center"><td class="for">Dave</td><td class="loss">436</td><td class="win">609</td><td class="win">461</td><td></td><td class="loss">311</td></tr>
+<tr align="center"><td class="for">Erin</td><td class="loss">410</td><td class="loss">298</td><td class="win">461</td><td class="win">610</td><td></td></tr>
+</table><p>
+So 609 voters preferred <span class="cand">Dave</span> to <span class="cand">Brad</span> and 312 preferred
+<span class="cand">Brad</span> to <span class="cand">Dave</span>.&nbsp; (The winning total of each one-on-one matchup is
+emphasized.)
+</p><p>
+Very often, there is a candidate who wins all of his one-on-one matchups, called the Condorcet winner.&nbsp; All of the
+following pairwise methods (plus Nanson, Baldwin and Rouse from above) choose the Condorcet winner when one exists.&nbsp;
+The example above has no Condorcet winner, and the following methods pick different winners.
+</p><hr><p>
+<strong><a name="black">Black</a></strong> chooses the Condorcet winner when one exists and the Borda winner
+otherwise.&nbsp; <span class="cand">Abby</span> would win the above election using Black since she is the Borda winner
+and no Condorcet winner exists.
+</p><hr><p>
+<strong><a name="copeland">Copeland</a></strong> counts pairwise victories for each candidate, counting a pairwise tie as
+half a victory, and picks the candidate with the largest result.&nbsp; For the above example, Copeland would pick
+<span class="cand">Abby</span> and <span class="cand">Brad</span> as winners, each with a score of 3.&nbsp; Copeland
+ignores the relative strengths of the pairwise comparisons and is indecisive relatively often.
+</p><hr><p>
+<strong><a name="small">Small</a></strong> calculates scores for the candidates exactly like Copeland.&nbsp; If more than
+one candidate ties with the best Copeland score, the other candidates are eliminated and the scores are recalculated;
+This step is repeated until no more candidates can be eliminated.&nbsp; In the above example,
+<span class="cand">Abby</span> and <span class="cand">Brad</span> tie with a Copeland score of 3, so
+<span class="cand">Cora</span>, <span class="cand">Dave</span> and <span class="cand">Erin</span> are eliminated, then
+<span class="cand">Brad</span> wins over <span class="cand">Abby</span> 1 to 0.
+</p><hr><p>
+<strong><a name="dodgson">Dodgson</a></strong> simply sums each candidate&rsquo;s margins of defeat and chooses the
+candidate with the smallest sum.&nbsp; In a way, it picks the candidate &ldquo;closest&rdquo; to being a Condorcet
+winner.&nbsp; The Dodgson winner for the above example is <span class="cand">Cora</span>, with a defeat-margin sum of
+4.&nbsp; Notice that although <span class="cand">Cora</span> is a Condorcet loser, that is, she loses all of her
+one-on-one matchups, she loses them by the smallest of margins.&nbsp; Dodgson can also be thought of as a sort of
+compromise between Copeland and Simpson (below).
+</p><hr><p>
+<strong><a name="simpson">Simpson</a></strong> picks the candidate with the smallest maximum pairwise defeat.&nbsp; The
+Simpson winner for the above example is also <span class="cand">Cora</span>; <span class="cand">Cora</span>&rsquo;s
+largest defeat is by only one vote, and the other candidates have greater defeats.&nbsp; Simpson can be thought of as
+successively ignoring the smallest defeat until one candidate is unbeaten.
+</p><hr><p>
+<strong><a name="raynaud">Raynaud</a></strong> is an elimination method based on Simpson.&nbsp; The candidate with the
+largest single pairwise defeat among remaining candidates is eliminated until only one remains.&nbsp; With her 623
+defeat, <span class="cand">Erin</span> is the first to be eliminated in the example above; <span class="cand">Brad</span>
+is next, then <span class="cand">Dave</span> and <span class="cand">Cora</span>, so <span class="cand">Abby</span> is the
+winner.
+</p><hr><p>
+<strong><a name="schulze">Schulze</a></strong> uses the concept of beatpaths to resolve pairwise cycles.&nbsp; A beatpath
+is a sequence of pairwise victories linking one candidate to another.&nbsp;
+<span class="cand">Abby&gt;Erin&gt;Dave&gt;Brad</span> is an example from the above election; it&rsquo;s formed from the
+victories <span class="cand">Abby&gt;Erin</span>, <span class="cand">Erin&gt;Dave</span> and
+<span class="cand">Dave&gt;Brad</span>.&nbsp; Each beatpath has a strength equal to the strength of the weakest victory
+it includes, so <span class="cand">Abby&gt;Erin&gt;Dave&gt;Brad</span> has a strength of 511, the strength of the
+<span class="cand">Abby&gt;Erin</span> victory.&nbsp; For each pair of candidates, the strengths of the strongest
+beatpaths each way are calculated:
+</p><table border cellpadding=3>
+<tr align="center"><td class="win"><span class="cand">Abby&gt;Erin&gt;Dave&gt;Brad</span></td><td class="win">511</td><td class="loss">463</td><td class="loss"><span class="cand">Brad&gt;Abby</span></td></tr>
+<tr align="center"><td class="win"><span class="cand">Abby&gt;Cora</span></td><td class="win">461</td><td class="loss">460</td><td class="loss"><span class="cand">Cora&gt;Abby</span></td></tr>
+<tr align="center"><td class="win"><span class="cand">Abby&gt;Erin&gt;Dave</span></td><td class="win">511</td><td class="loss">463</td><td class="loss"><span class="cand">Dave&gt;Brad&gt;Abby</span></td></tr>
+<tr align="center"><td class="win"><span class="cand">Abby&gt;Erin</span></td><td class="win">511</td><td class="loss">463</td><td class="loss"><span class="cand">Erin&gt;Dave&gt;Brad&gt;Abby</span></td></tr>
+<tr align="center"><td class="win"><span class="cand">Brad&gt;Cora</span></td><td class="win">461</td><td class="loss">460</td><td class="loss"><span class="cand">Cora&gt;Brad</span></td></tr>
+<tr align="center"><td class="win"><span class="cand">Brad&gt;Erin&gt;Dave</span></td><td class="win">610</td><td class="loss">609</td><td class="loss"><span class="cand">Dave&gt;Brad</span></td></tr>
+<tr align="center"><td class="win"><span class="cand">Brad&gt;Erin</span></td><td class="win">623</td><td class="loss">609</td><td class="loss"><span class="cand">Erin&gt;Dave&gt;Brad</span></td></tr>
+<tr align="center"><td class="loss"><span class="cand">Cora&gt;Dave</span></td><td class="loss">460</td><td class="win">461</td><td class="win"><span class="cand">Dave&gt;Cora</span></td></tr>
+<tr align="center"><td class="loss"><span class="cand">Cora&gt;Erin</span></td><td class="loss">460</td><td class="win">461</td><td class="win"><span class="cand">Erin&gt;Cora</span></td></tr>
+<tr align="center"><td class="loss"><span class="cand">Dave&gt;Brad&gt;Erin</span></td><td class="loss">609</td><td class="win">610</td><td class="win"><span class="cand">Erin&gt;Dave</span></td></tr>
+</table><p>
+The candidate who always has a stronger beatpath to another than the other has to her, in this case
+<span class="cand">Abby</span> (511-463 over <span class="cand">Brad</span>, <span class="cand">Dave</span> and
+<span class="cand">Erin</span>, and 461-460 over <span class="cand">Cora</span>), is chosen as the Schulze winner.&nbsp;
+Schulze usually agrees with Simpson, but Schulze avoids Simpson&rsquo;s paradoxical results as in this example.
+</p><hr><p>
+<strong><a name="tideman">Tideman</a></strong> orders the pairwise victories from strongest to weakest and locks them in
+order, ignoring those that contradict stronger victories.&nbsp; In the above example, the
+<span class="cand">Brad&gt;Erin</span> victory is strongest and is locked.&nbsp; <span class="cand">Erin&gt;Dave</span>
+is the next to be locked.&nbsp; <span class="cand">Dave&gt;Brad</span> is the next-strongest victory, but it&rsquo;s
+skipped since it would contradict <span class="cand">Brad&gt;Erin</span> and <span class="cand">Erin&gt;Dave</span>
+(which imply <span class="cand">Brad&gt;Dave</span>).&nbsp; The other victories can all be locked in order, generating
+the ordering <span class="cand">Brad&gt;Abby&gt;Erin&gt;Dave&gt;Cora</span>; Tideman would pick
+<span class="cand">Brad</span> as the winner since he has locked defeats against all other candidates.&nbsp; Note that
+Copeland, Schulze and Tideman find <span class="cand">Cora</span> to be the worst candidate, but Dodgson and Simpson pick
+<span class="cand">Cora</span> as the winner.&nbsp; (Dodgson and Simpson very rarely choose a Condorcet loser, as in this
+example, but Copeland, Schulze and Tideman never do.)
+</p><hr><p>
+Unavoidably, these methods will sometimes be unable to choose only one candidate.&nbsp; For example, given the election
+</p><table border=0 cellpadding=0 cellspacing=0>
+<tr align="right"><td><span class="cand">25:Ryan&gt;Sara&gt;Todd</span></td></tr>
+<tr align="right"><td><span class="cand">25:Ryan&gt;Todd&gt;Sara</span></td></tr>
+<tr align="right"><td><span class="cand">25:Sara&gt;Ryan&gt;Todd</span></td></tr>
+<tr align="right"><td><span class="cand">25:Sara&gt;Todd&gt;Ryan</span></td></tr>
+</table><p>
+no unbiased method would be able to choose one candidate decisively.&nbsp; A tiebreaking ranking must be used to decide
+between <span class="cand">Ryan</span> and <span class="cand">Sara</span>.&nbsp; A ballot can be chosen randomly to
+provide the tiebreaking ranking.&nbsp; The methods vary widely in their decisiveness and thus in their reliance on
+tiebreakers:&nbsp; Black is the most decisive, whereas Copeland is the least, having to rely on a tiebreaker much more
+frequently.
+</p><p>
+Three more procedures, <strong><a name="smith">Smith</a></strong>, <strong><a name="schwartz">Schwartz</a></strong> and
+<strong><a name="landau">Landau</a></strong>, are so indecisive that they&rsquo;re usually thought of as producing sets
+of candidates rather than winners. .&nbsp;.&nbsp;.
+</p><hr>
+<a href="index.html">Back to Ranked-ballot voting methods</a><br>
+</body></html>
