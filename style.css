@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+:root {
+   --monospace: Inconsolata, Consolas, "Andale Mono", AndaleMono, monospace;
+   --serif: Georgia, Palatino, "Palatino Linotype", "Book Antiqua", Garamond, "Goudy Old Style", Perpetua, Baskerville, Gentium, serif;
+}
+
 html {
    box-sizing: border-box;
 }
@@ -33,16 +38,17 @@ a:visited {
 body {
    background-color: #c0c8d0;
    color: #000000;
+   font-family: var(--serif);
 }
 
 td.against {
    background-color: #d0c0c8;
-   font-family: monospace;
+   font-family: var(--monospace);
 }
 
 td.for {
    background-color: #c8d0c0;
-   font-family: monospace;
+   font-family: var(--monospace);
 }
 
 td.loss {
@@ -55,11 +61,11 @@ td.win {
 }
 
 .cand {
-   font-family: monospace;
+   font-family: var(--monospace);
 }
 
 .email {
-   font-family: monospace;
+   font-family: var(--monospace);
 }
 
 .endtag {
@@ -69,5 +75,5 @@ td.win {
 }
 
 .url {
-   font-family: monospace;
+   font-family: var(--monospace);
 }
