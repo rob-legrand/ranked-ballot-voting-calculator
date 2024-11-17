@@ -1,26 +1,36 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html><head><title>Ranked-ballot voting calculator</title>
-<link href="style.css" rel="stylesheet" type="text/css">
-</head><body alink="#3030a0" bgcolor="#c0c8d0" link="#000080" text="#000000" vlink="#6060c0">
+<!DOCTYPE html>
+<html lang="en-US"><head>
+
+<meta charset="UTF-8" />
+<title>Ranked-ballot voting calculator</title>
+
+<link href="style.css" rel="stylesheet" />
+<meta name="viewport" content="initial-scale=1, width=device-width" />
+
+</head><body>
+
 <h1>Ranked-ballot voting calculator</h1>
-<p>
-This form calculates the winners of several ranked-ballot voting methods.&nbsp; See below for <a href="#examples">input&nbsp;examples</a>.
-</p><form name="rbform"><p>
-Enter ranked ballots:<br>
-<textarea cols=64 name="rvote" rows=12></textarea>
-</p><p>
-Enter candidates to ignore (optional):<br>
-<input name="ignore" size=64 type="text">
-</p><p>
-Enter tiebreaking ranking (optional):<br>
-<input name="tiebreak" size=64 type="text">
-</p><p>
-<input name="reverse" type="checkbox">Reverse all rankings
-</p><p>
-<input onclick="calcall()" type="button" value="Calculate all winners">
-<input type="reset" value="Reset form">
-</p><p>
-Or see how a specific method chooses its winner:<br>
+
+<p>This form calculates the winners of several ranked-ballot voting methods.&nbsp;
+See below for <a href="#examples">input&nbsp;examples</a>.</p>
+
+<form name="rbform">
+
+<p>Enter ranked ballots:<br />
+<textarea cols="64" name="rvote" rows="12"></textarea></p>
+
+<p>Enter candidates to ignore (optional):<br />
+<input name="ignore" size="64" type="text"></p>
+
+<p>Enter tiebreaking ranking (optional):<br />
+<input name="tiebreak" size=64 type="text"></p>
+
+<p><input name="reverse" type="checkbox">Reverse all rankings</p>
+
+<p><input onclick="calcall()" type="button" value="Calculate all winners">
+<input type="reset" value="Reset form"></p>
+
+<p>Or see how a specific method chooses its winner:<br />
 <table><tr><td align="center">
 <input onclick="calcbald(true)" type="button" value="Baldwin">
 <input onclick="calcblac(true)" type="button" value="Black">
@@ -39,30 +49,36 @@ Or see how a specific method chooses its winner:<br>
 <input onclick="calcsimp(true)" type="button" value="Simpson">
 <input onclick="calcsmal(true)" type="button" value="Small">
 <input onclick="calctide(true)" type="button" value="Tideman">
-</td></tr></table>
-</p></form>
-<a name="examples"><hr align="left" width="50%"></a>
-<p>
-Each line must consist of candidate names separated by <span class="cand">&gt;</span> or <span class="cand">=</span>.&nbsp; Each candidate name must be one
-word and consist only of uppercase and lowercase letters (case is significant, so <span class="cand">LeGrand</span> is not the same as
-<span class="cand">Legrand</span>).&nbsp; One ballot per line is assumed unless the line begins with a number followed by a colon; the number specifies
-how many ballots share that ranking.&nbsp; If a candidate appears more than once on a line, only the first (highest) occurrence is counted.&nbsp; A
-<span class="cand">#</span> begins a comment that extends to the end of the line; the calculator ignores comments.&nbsp; Ballots themselves can be
-commented out by inserting a <span class="cand">#</span> at the beginning of the line.
-</p><p>
-If a list of candidates to ignore is given, those candidates will be treated as if they dropped out of the election between the collection and counting of
-the ballots.
-</p><p>
-If a tiebreaking ranking is given, it must include all of the candidates.&nbsp; If none is given and a tiebreaking ranking is needed, it will be generated
-by drawing a random ballot and breaking its tied preferences randomly.
-</p><p>
-Checking the &ldquo;Reverse all rankings&rdquo; box effectively flips the preferences in each ballot and in the tiebreaker; it&rsquo;s useful to test for
-reverse-symmetry violations.
-</p><p>
-Here are some example ranked-ballot inputs to use.&nbsp; Just copy one of these text blocks and paste it into the input field above.&nbsp; See if you can
-guess the results!
-</p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+</td></tr></table></p>
+
+</form>
+
+<a name="examples"><hr align="left" width="50%" /></a>
+
+<p>Each line must consist of candidate names separated by <span class="cand">&gt;</span> or <span class="cand">=</span>.&nbsp;
+Each candidate name must be one word and consist only of uppercase and lowercase letters
+(case is significant, so <span class="cand">LeGrand</span> is not the same as <span class="cand">Legrand</span>).&nbsp;
+One ballot per line is assumed unless the line begins with a number followed by a colon;
+the number specifies how many ballots share that ranking.&nbsp;
+If a candidate appears more than once on a line, only the first (highest) occurrence is counted.&nbsp;
+A <span class="cand">#</span> begins a comment that extends to the end of the line;
+the calculator ignores comments.&nbsp;
+Ballots themselves can be commented out by inserting a <span class="cand">#</span> at the beginning of the line.</p>
+
+<p>If a list of candidates to ignore is given,
+those candidates will be treated as if they dropped out of the election between the collection and counting of the ballots.</p>
+
+<p>If a tiebreaking ranking is given, it must include all of the candidates.&nbsp;
+If none is given and a tiebreaking ranking is needed, it will be generated by drawing a random ballot and breaking its tied preferences randomly.</p>
+
+<p>Checking the &ldquo;Reverse all rankings&rdquo; box effectively flips the preferences in each ballot and in the tiebreaker;
+it&rsquo;s useful to test for reverse-symmetry violations.</p>
+
+<p>Here are some example ranked-ballot inputs to use.&nbsp;
+Just copy one of these text blocks and paste it into the input field above.&nbsp;
+See whether you can guess the results!:</p>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># example from method description page</span></td></tr>
 <tr align="left"><td><span class="cand">&nbsp;98:Abby&gt;Cora&gt;Erin&gt;Dave&gt;Brad</span></td></tr>
 <tr align="left"><td><span class="cand">&nbsp;64:Brad&gt;Abby&gt;Erin&gt;Cora&gt;Dave</span></td></tr>
@@ -78,13 +94,15 @@ guess the results!
 <tr align="left"><td><span class="cand">139:Dave&gt;Cora&gt;Abby&gt;Brad&gt;Erin</span></td></tr>
 <tr align="left"><td><span class="cand">&nbsp;23:Dave&gt;Cora&gt;Brad&gt;Abby&gt;Erin</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># 1980 American presidential election</span></td></tr>
 <tr align="left"><td><span class="cand">45:Reagan&gt;Anderson&gt;Carter</span></td></tr>
 <tr align="left"><td><span class="cand">20:Anderson&gt;Carter&gt;Reagan</span></td></tr>
 <tr align="left"><td><span class="cand">35:Carter&gt;Anderson&gt;Reagan</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># 1860 American presidential election</span></td></tr>
 <tr align="left"><td><span class="cand">2117:Lincoln&gt;Douglas&gt;Bell&gt;Breckinridge</span></td></tr>
 <tr align="left"><td><span class="cand">1861:Lincoln&gt;Bell&gt;Douglas&gt;Breckinridge</span></td></tr>
@@ -103,7 +121,8 @@ guess the results!
 <tr align="left"><td><span class="cand">&nbsp;&nbsp;11:Douglas&gt;Lincoln&gt;Breckinridge&gt;Bell</span></td></tr>
 <tr align="left"><td><span class="cand">&nbsp;&nbsp;&nbsp;4:Bell&gt;Breckinridge&gt;Lincoln&gt;Douglas</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># 2000 American presidential election</span></td></tr>
 <tr align="left"><td><span class="cand">11:Browne&gt;Bush&gt;Buchanan&gt;Gore&gt;Nader</span></td></tr>
 <tr align="left"><td><span class="cand">&nbsp;2:Buchanan&gt;Bush&gt;Browne&gt;Nader&gt;Gore</span></td></tr>
@@ -114,12 +133,14 @@ guess the results!
 <tr align="left"><td><span class="cand">&nbsp;3:Nader&gt;Browne&gt;Gore&gt;Bush&gt;Buchanan</span></td></tr>
 <tr align="left"><td><span class="cand">31:Nader&gt;Gore&gt;Browne&gt;Bush&gt;Buchanan</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand">48:Gore&gt;McCain&gt;Bush</span></td></tr>
 <tr align="left"><td><span class="cand">25:McCain&gt;Bush&gt;Gore</span></td></tr>
 <tr align="left"><td><span class="cand">27:Bush&gt;McCain&gt;Gore</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># 2004 American Democratic primary</span></td></tr>
 <tr align="left"><td><span class="cand">33:Dean&gt;Gephardt&gt;Edwards&gt;Lieberman&gt;Clark</span></td></tr>
 <tr align="left"><td><span class="cand">22:Clark&gt;Edwards&gt;Gephardt&gt;Lieberman&gt;Dean</span></td></tr>
@@ -128,14 +149,16 @@ guess the results!
 <tr align="left"><td><span class="cand">&nbsp;7:Edwards&gt;Clark&gt;Gephardt&gt;Lieberman&gt;Dean</span></td></tr>
 <tr align="left"><td><span class="cand">&nbsp;4:Edwards&gt;Lieberman&gt;Gephardt&gt;Clark&gt;Dean</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># Where to have a Tennessee state conference?</span></td></tr>
 <tr align="left"><td><span class="cand">42:Memphis&gt;Nashville&gt;Chattanooga&gt;Knoxville</span></td></tr>
 <tr align="left"><td><span class="cand">26:Nashville&gt;Chattanooga&gt;Knoxville&gt;Memphis</span></td></tr>
 <tr align="left"><td><span class="cand">15:Chattanooga&gt;Knoxville&gt;Nashville&gt;Memphis</span></td></tr>
 <tr align="left"><td><span class="cand">17:Knoxville&gt;Chattanooga&gt;Nashville&gt;Memphis</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># Hare jumps to extremes on a left-right spectrum</span></td></tr>
 <tr align="left"><td><span class="cand">18:FarLeft&gt;Left&gt;Center&gt;Right&gt;FarRight</span></td></tr>
 <tr align="left"><td><span class="cand">16:Left&gt;FarLeft&gt;Center&gt;Right&gt;FarRight</span></td></tr>
@@ -144,7 +167,8 @@ guess the results!
 <tr align="left"><td><span class="cand">19:Right&gt;FarRight&gt;Center&gt;Left&gt;FarLeft</span></td></tr>
 <tr align="left"><td><span class="cand">21:FarRight&gt;Right&gt;Center&gt;Left&gt;FarLeft</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># sometimes it's better to be eliminated early rather than late under Hare</span></td></tr>
 <tr align="left"><td><span class="cand">13:Libertarian&gt;Right&gt;Left&gt;Statist</span></td></tr>
 <tr align="left"><td><span class="cand">15:Libertarian&gt;Left&gt;Right&gt;Statist</span></td></tr>
@@ -158,7 +182,8 @@ guess the results!
 <tr align="left"><td><span class="cand"># Try adding 3 more Statist&gt;Right&gt;Left&gt;Libertarian ballots.</span></td></tr>
 <tr align="left"><td><span class="cand"># Or, try deleting 3 Right&gt;Statist&gt;Libertarian&gt;Left ballots.</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># Which team should have been Miami's opponent in the 2002 Rose Bowl?</span></td></tr>
 <tr align="left"><td><span class="cand">&nbsp;7788:Colorado&gt;Nebraska&gt;Oregon</span></td></tr>
 <tr align="left"><td><span class="cand">10536:Colorado&gt;Oregon&gt;Nebraska</span></td></tr>
@@ -170,21 +195,24 @@ guess the results!
 <tr align="left"><td><span class="cand"># In the event, Miami played Nebraska and won 37-14.</span></td></tr>
 <tr align="left"><td><span class="cand"># Oregon beat Colorado 38-16 in the Fiesta Bowl.</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># three yes/no issues in order of importance</span></td></tr>
 <tr align="left"><td><span class="cand">600:NNN&gt;NNY&gt;NYN&gt;YNN&gt;NYY&gt;YNY&gt;YYN&gt;YYY</span></td></tr>
 <tr align="left"><td><span class="cand">300:NYY&gt;NYN&gt;NNY&gt;YYY&gt;NNN&gt;YYN&gt;YNY&gt;YNN</span></td></tr>
 <tr align="left"><td><span class="cand">302:YNY&gt;YNN&gt;YYY&gt;NNY&gt;YYN&gt;NNN&gt;NYY&gt;NYN</span></td></tr>
 <tr align="left"><td><span class="cand">303:YYN&gt;YYY&gt;YNN&gt;NYN&gt;YNY&gt;NYY&gt;NNN&gt;NNY</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># three large special-interest groups</span></td></tr>
 <tr align="left"><td><span class="cand">300:NNN&gt;NNY&gt;NYN&gt;YNN&gt;NYY&gt;YNY&gt;YYN&gt;YYY</span></td></tr>
 <tr align="left"><td><span class="cand">301:NNY&gt;NYY&gt;YNY&gt;YYY&gt;NNN&gt;NYN&gt;YNN&gt;YYN</span></td></tr>
 <tr align="left"><td><span class="cand">303:NYN&gt;NYY&gt;YYN&gt;YYY&gt;NNN&gt;NNY&gt;YNN&gt;YNY</span></td></tr>
 <tr align="left"><td><span class="cand">307:YNN&gt;YNY&gt;YYN&gt;YYY&gt;NNN&gt;NNY&gt;NYN&gt;NYY</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># EM list political party poll</span></td></tr>
 <tr align="left"><td><span class="cand">Green&gt;Democratic&gt;Libertarian&gt;NaturalLaw&gt;Reform&gt;Republican&gt;Constitution</span></td></tr>
 <tr align="left"><td><span class="cand">Green&gt;Democratic&gt;NaturalLaw&gt;Libertarian&gt;Reform&gt;Republican&gt;Constitution</span></td></tr>
@@ -193,7 +221,8 @@ guess the results!
 <tr align="left"><td><span class="cand">Reform&gt;Libertarian&gt;Republican&gt;Green&gt;Democratic&gt;Constitution&gt;NaturalLaw</span></td></tr>
 <tr align="left"><td><span class="cand">Republican&gt;Libertarian&gt;Democratic&gt;Constitution&gt;Reform&gt;Green&gt;NaturalLaw</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand">32:Labour&gt;Liberal&gt;Conservative&gt;SocialDemocrat</span></td></tr>
 <tr align="left"><td><span class="cand">30:Conservative&gt;Liberal&gt;Labour&gt;SocialDemocrat</span></td></tr>
 <tr align="left"><td><span class="cand">23:SocialDemocrat&gt;Liberal&gt;Labour&gt;Conservative</span></td></tr>
@@ -201,14 +230,16 @@ guess the results!
 <tr align="left"><td><span class="cand">&nbsp;3:Liberal&gt;SocialDemocrat&gt;Labour&gt;Conservative</span></td></tr>
 <tr align="left"><td><span class="cand">&nbsp;2:Liberal&gt;SocialDemocrat&gt;Conservative&gt;Labour</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># Demorep's silly Hare example</span></td></tr>
 <tr align="left"><td><span class="cand">34:Hitler&gt;Washington&gt;Stalin</span></td></tr>
 <tr align="left"><td><span class="cand">33:Stalin&gt;Washington&gt;Hitler</span></td></tr>
 <tr align="left"><td><span class="cand">16:Washington&gt;Hitler&gt;Stalin</span></td></tr>
 <tr align="left"><td><span class="cand">16:Washington&gt;Stalin&gt;Hitler</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># 1969 referendum on name of new city created from Fort William and Port Arthur, Ontario</span></td></tr>
 <tr align="left"><td><span class="cand">10256:ThunderBay&gt;Lakehead&gt;TheLakehead</span></td></tr>
 <tr align="left"><td><span class="cand">&nbsp;5614:ThunderBay&gt;TheLakehead&gt;Lakehead</span></td></tr>
@@ -216,19 +247,22 @@ guess the results!
 <tr align="left"><td><span class="cand">&nbsp;8377:TheLakehead&gt;Lakehead&gt;ThunderBay</span></td></tr>
 <tr align="left"><td><span class="cand"># Thunder Bay won real referendum with a plurality</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># Which game should we play?</span></td></tr>
 <tr align="left"><td><span class="cand">Uno&gt;TrivialPursuit&gt;Scrabble&gt;Life&gt;poker&gt;Risk&gt;Yahtzee&gt;Monopoly&gt;BargainHunter&gt;Pokerkub</span></td></tr>
 <tr align="left"><td><span class="cand">Scrabble&gt;Risk&gt;Pokerkub&gt;Yahtzee&gt;poker&gt;Life&gt;Uno&gt;Monopoly&gt;TrivialPursuit&gt;BargainHunter</span></td></tr>
 <tr align="left"><td><span class="cand">TrivialPursuit&gt;poker&gt;Life&gt;Scrabble&gt;BargainHunter&gt;Yahtzee&gt;Pokerkub&gt;Monopoly&gt;Risk&gt;Uno</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># Bucklin and Woodall disagree</span></td></tr>
 <tr align="left"><td><span class="cand">25:Brown&gt;Jones&gt;Davis&gt;Smith</span></td></tr>
 <tr align="left"><td><span class="cand">26:Davis&gt;Smith&gt;Brown&gt;Jones</span></td></tr>
 <tr align="left"><td><span class="cand">49:Jones&gt;Smith&gt;Brown&gt;Davis</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># Coombs and Hare are capricious</span></td></tr>
 <tr align="left"><td><span class="cand">18:A&gt;C&gt;E&gt;D&gt;B</span></td></tr>
 <tr align="left"><td><span class="cand">20:B&gt;A&gt;C&gt;D&gt;E</span></td></tr>
@@ -236,12 +270,14 @@ guess the results!
 <tr align="left"><td><span class="cand">22:D&gt;B&gt;E&gt;C&gt;A</span></td></tr>
 <tr align="left"><td><span class="cand">21:E&gt;D&gt;A&gt;B&gt;C</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand">25:B&gt;C&gt;A&gt;E&gt;D</span></td></tr>
 <tr align="left"><td><span class="cand">49:D&gt;A&gt;C&gt;B&gt;E</span></td></tr>
 <tr align="left"><td><span class="cand">26:E&gt;B&gt;A&gt;C&gt;D</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand">21:A&gt;D&gt;B&gt;C</span></td></tr>
 <tr align="left"><td><span class="cand">12:B&gt;C&gt;A&gt;D</span></td></tr>
 <tr align="left"><td><span class="cand">33:C&gt;B&gt;A&gt;D</span></td></tr>
@@ -249,7 +285,8 @@ guess the results!
 <tr align="left"><td><span class="cand">25:D&gt;A&gt;B&gt;C</span></td></tr>
 <tr align="left"><td><span class="cand">&nbsp;3:D&gt;B&gt;A&gt;C</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand">47:A&gt;D&gt;B&gt;C</span></td></tr>
 <tr align="left"><td><span class="cand">23:A&gt;D&gt;C&gt;B</span></td></tr>
 <tr align="left"><td><span class="cand">36:B&gt;D&gt;C&gt;A</span></td></tr>
@@ -258,7 +295,8 @@ guess the results!
 <tr align="left"><td><span class="cand">23:D&gt;B&gt;A&gt;C</span></td></tr>
 <tr align="left"><td><span class="cand">14:D&gt;B&gt;C&gt;A</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># Heitzig, Schulze and Tideman disagree</span></td></tr>
 <tr align="left"><td><span class="cand">16:B&gt;A&gt;E&gt;D&gt;C</span></td></tr>
 <tr align="left"><td><span class="cand">27:C&gt;B&gt;A&gt;E&gt;D</span></td></tr>
@@ -266,7 +304,9 @@ guess the results!
 <tr align="left"><td><span class="cand">31:D&gt;A&gt;B&gt;C&gt;E</span></td></tr>
 <tr align="left"><td><span class="cand">&nbsp;9:E&gt;D&gt;B&gt;C&gt;A</span></td></tr>
 </table></p>
-<!-- <p><table border=0 cellpadding=0 cellspacing=0>
+
+<!--
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># schulzeincr and Schulze disagree</span></td></tr>
 <tr align="left"><td><span class="cand">31:B&gt;A&gt;E&gt;D&gt;C</span></td></tr>
 <tr align="left"><td><span class="cand">23:C&gt;B&gt;A&gt;E&gt;D</span></td></tr>
@@ -274,14 +314,17 @@ guess the results!
 <tr align="left"><td><span class="cand">11:D&gt;C&gt;B&gt;A&gt;E</span></td></tr>
 <tr align="left"><td><span class="cand">10:E&gt;A&gt;C&gt;B&gt;D</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># schulzeincr and Schulze disagree</span></td></tr>
 <tr align="left"><td><span class="cand">23:A&gt;C&gt;D&gt;B</span></td></tr>
 <tr align="left"><td><span class="cand">24:B&gt;A&gt;C&gt;D</span></td></tr>
 <tr align="left"><td><span class="cand">24:C&gt;B&gt;D&gt;A</span></td></tr>
 <tr align="left"><td><span class="cand">29:D&gt;A&gt;B&gt;C</span></td></tr>
-</table></p> -->
-<p><table border=0 cellpadding=0 cellspacing=0>
+</table></p>
+-->
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand"># A is Borda-superior to Condorcet winner B</span></td></tr>
 <tr align="left"><td><span class="cand">A&gt;C&gt;E&gt;D&gt;B</span></td></tr>
 <tr align="left"><td><span class="cand">A&gt;D&gt;C&gt;B&gt;E</span></td></tr>
@@ -289,7 +332,8 @@ guess the results!
 <tr align="left"><td><span class="cand">B&gt;A&gt;D&gt;E&gt;C</span></td></tr>
 <tr align="left"><td><span class="cand">E&gt;B&gt;A&gt;C&gt;D</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand">A&gt;C&gt;B&gt;F&gt;D&gt;E</span></td></tr>
 <tr align="left"><td><span class="cand">B&gt;C&gt;E&gt;F&gt;D&gt;A</span></td></tr>
 <tr align="left"><td><span class="cand">D&gt;B&gt;A&gt;F&gt;E&gt;C</span></td></tr>
@@ -297,28 +341,33 @@ guess the results!
 <tr align="left"><td><span class="cand">E&gt;D&gt;A&gt;B&gt;C&gt;F</span></td></tr>
 <tr align="left"><td><span class="cand">F&gt;C&gt;D&gt;A&gt;B&gt;E</span></td></tr>
 </table></p>
-<p><table border=0 cellpadding=0 cellspacing=0>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
 <tr align="left"><td><span class="cand">A&gt;C&gt;D&gt;E&gt;B</span></td></tr>
 <tr align="left"><td><span class="cand">B&gt;A&gt;C&gt;E&gt;D</span></td></tr>
 <tr align="left"><td><span class="cand">B&gt;A&gt;E&gt;D&gt;C</span></td></tr>
 <tr align="left"><td><span class="cand">D&gt;C&gt;E&gt;B&gt;A</span></td></tr>
 </table></p>
-<!--
-http://robovote.org/demo
-PizzaHut>PapaJohns>Dominos>LittleCaesars>CaliforniaPizzaKitchen
-Dominos>LittleCaesars>CaliforniaPizzaKitchen>PizzaHut>PapaJohns
-PapaJohns>Dominos>LittleCaesars>PizzaHut>CaliforniaPizzaKitchen
-Dominos>PizzaHut>PapaJohns>LittleCaesars>CaliforniaPizzaKitchen
-PapaJohns>Dominos>PizzaHut>CaliforniaPizzaKitchen>LittleCaesars
--->
-<p>
-This ranked-ballot voting calculator was inspired in part by Rob Lanphier&rsquo;s
-<a href="https://robla.net/1996/politics/condorcet-front.html">Pairwise&nbsp;Methods&nbsp;Demonstration</a>; Lanphier maintains the
-<a href="http://electorama.com/em/">Election&nbsp;Methods&nbsp;mailing&nbsp;list</a>.&nbsp; In turn, my calculator inspired Eric Gorr&rsquo;s
-<a href="http://www.ericgorr.net/condorcet/">Voting&nbsp;Calculator</a>.
-</p><p>
-Please e-mail any questions, problems or suggestions to <span class="email">approval98@</span><span class="email">gmail.com</span>.
-</p><hr>
-<p><a href="old/index.html">Back to Ranked-ballot voting methods</a></p>
+
+<p><table border="0" cellpadding="0" cellspacing="0">
+<tr align="left"><td><span class="cand">PizzaHut&gt;PapaJohns&gt;Dominos&gt;LittleCaesars&gt;CaliforniaPizzaKitchen</span></td></tr>
+<tr align="left"><td><span class="cand">Dominos&gt;LittleCaesars&gt;CaliforniaPizzaKitchen&gt;PizzaHut&gt;PapaJohns</span></td></tr>
+<tr align="left"><td><span class="cand">PapaJohns&gt;Dominos&gt;LittleCaesars&gt;PizzaHut&gt;CaliforniaPizzaKitchen</span></td></tr>
+<tr align="left"><td><span class="cand">Dominos&gt;PizzaHut&gt;PapaJohns&gt;LittleCaesars&gt;CaliforniaPizzaKitchen</span></td></tr>
+<tr align="left"><td><span class="cand">PapaJohns&gt;Dominos&gt;PizzaHut&gt;CaliforniaPizzaKitchen&gt;LittleCaesars</span></td></tr>
+</table></p>
+
+<p>This ranked-ballot voting calculator was inspired in part by Rob Lanphier&rsquo;s
+<a href="https://robla.net/1996/politics/condorcet-front.html">Pairwise&nbsp;Methods&nbsp;Demonstration</a>;
+Lanphier maintains the <a href="http://electorama.com/em/">Election&nbsp;Methods&nbsp;mailing&nbsp;list</a>.&nbsp;
+In turn, my calculator inspired Eric Gorr&rsquo;s <a href="http://www.ericgorr.net/condorcet/">Voting&nbsp;Calculator</a>.</p>
+
+<p>Please e-mail any questions, problems or suggestions to <span class="email">approval98@</span><span class="email">gmail.com</span>.</p>
+
+<hr />
+
+<p><a href="old/">Back to Ranked-ballot voting methods</a></p>
+
 <script src="script.js"></script>
+
 </body></html>
