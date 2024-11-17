@@ -18,7 +18,7 @@ a {
 }
 
 a:active {
-   color: #3030a0;
+   color: rgb(48, 48, 160);
 }
 
 a:hover {
@@ -28,35 +28,35 @@ a:hover {
 }
 
 a:link {
-   color: #000080;
+   color: rgb(0, 0, 128);
 }
 
 a:visited {
-   color: #6060c0;
+   color: rgb(96, 96, 192);
 }
 
 body {
-   background-color: #c0c8d0;
-   color: #000000;
+   background-color: rgb(192, 200, 208);
+   color: rgb(0, 0, 0);
    font-family: var(--serif);
 }
 
 td.against {
-   background-color: #d0c0c8;
+   background-color: rgb(208, 192, 200);
    font-family: var(--monospace);
 }
 
 td.for {
-   background-color: #c8d0c0;
+   background-color: rgb(200, 208, 192);
    font-family: var(--monospace);
 }
 
 td.loss {
-   background-color: #d0c0c8;
+   background-color: rgb(208, 192, 200);
 }
 
 td.win {
-   background-color: #c8d0c0;
+   background-color: rgb(200, 208, 192);
    font-weight: bold;
 }
 
