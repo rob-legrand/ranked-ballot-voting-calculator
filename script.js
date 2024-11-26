@@ -87,7 +87,7 @@ function calcall()
                    "</td></tr>\n";
       str += "</table></p>";
       if (tbused)
-         str += "\n<p>* The ranking " + printtiebreak() + " was used as a random-ballot tiebreaker.</p>\n";
+         str += "\n<p>* The ranking " + printtiebreak(tbtonum) + " was used as a random-ballot tiebreaker.</p>\n";
       str += "<hr align=\"left\" width=\"50%\">\n" +
              "<p>The ranked ballots:</p>\n" +
              printrvote() +
@@ -198,7 +198,7 @@ function calcbald(onlyone)
                   str2 += "<span class=\"cand\">" + numtocand[elimset[i]] + "</span>" +
                           (i == elimset.length - 2 ? " and " : i == elimset.length - 1 ? "" : ", ");
             str2 += " have equally worst Borda scores, so a random-ballot tiebreaker must be used:</p>\n" +
-                    "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak() + "</p>\n" +
+                    "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak(tbtonum) + "</p>\n" +
                     "<p><span class=\"cand\">" + numtocand[elim] + "</span> is the lowest of them in the tiebreaking ranking and so is eliminated.</p>\n";
          }
       }
@@ -217,7 +217,7 @@ function calcbald(onlyone)
    if (onlyone)
    {
       str1 += "<table border cellpadding=3><tr><td><span class=\"cand\">" + result.winner + "</span> wins the Baldwin election" +
-              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak() : "") + ".</td></tr></table>\n";
+              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak(tbtonum) : "") + ".</td></tr></table>\n";
       str2 += "<p><span class=\"cand\">" + result.winner + "</span> is the only remaining candidate and so wins the election.</p>\n" +
               "</body></html>";
       document.write(str1 + str2);
@@ -315,7 +315,7 @@ function calcblac(onlyone)
                   str2 += "<span class=\"cand\">" + numtocand[winset[i]] + "</span>" +
                           (i == winset.length - 2 ? " and " : i == winset.length - 1 ? "" : ", ");
             str2 += " have equally best Borda scores, so a random-ballot tiebreaker must be used:</p>\n" +
-                    "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak() + "</p>\n" +
+                    "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak(tbtonum) + "</p>\n" +
                     "<p><span class=\"cand\">" + result.winner +
                     "</span> is the highest of them in the tiebreaking ranking and so wins the election.</p>\n";
          }
@@ -324,7 +324,7 @@ function calcblac(onlyone)
    if (onlyone)
    {
       str1 += "<table border cellpadding=3><tr><td><span class=\"cand\">" + result.winner + "</span> wins the Black election" +
-              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak() : "") + ".</td></tr></table>\n";
+              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak(tbtonum) : "") + ".</td></tr></table>\n";
       str2 += "</body></html>";
       document.write(str1 + str2);
       document.close();
@@ -395,14 +395,14 @@ function calcbord(onlyone)
                str2 += "<span class=\"cand\">" + numtocand[winset[i]] + "</span>" +
                        (i == winset.length - 2 ? " and " : i == winset.length - 1 ? "" : ", ");
          str2 += " have equally best Borda scores, so a random-ballot tiebreaker must be used:</p>\n" +
-                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak() + "</p>\n" +
+                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak(tbtonum) + "</p>\n" +
                  "<p><span class=\"cand\">" + result.winner + "</span> is the highest of them in the tiebreaking ranking and so wins the election.</p>\n";
       }
    }
    if (onlyone)
    {
       str1 += "<table border cellpadding=3><tr><td><span class=\"cand\">" + result.winner + "</span> wins the Borda election" +
-              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak() : "") + ".</td></tr></table>\n";
+              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak(tbtonum) : "") + ".</td></tr></table>\n";
       str2 += "</body></html>";
       document.write(str1 + str2);
       document.close();
@@ -488,14 +488,14 @@ function calcbuck(onlyone)
                str2 += "<span class=\"cand\">" + numtocand[winset[i]] + "</span>" +
                        (i == winset.length - 2 ? " and " : i == winset.length - 1 ? "" : ", ");
          str2 += " have equally best Bucklin scores, so a random-ballot tiebreaker must be used:</p>\n" +
-                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak() + "</p>\n" +
+                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak(tbtonum) + "</p>\n" +
                  "<p><span class=\"cand\">" + result.winner + "</span> is the highest of them in the tiebreaking ranking and so wins the election.</p>\n";
       }
    }
    if (onlyone)
    {
       str1 += "<table border cellpadding=3><tr><td><span class=\"cand\">" + result.winner + "</span> wins the Bucklin election" +
-              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak() : "") + ".</td></tr></table>\n";
+              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak(tbtonum) : "") + ".</td></tr></table>\n";
       str2 += "</body></html>";
       document.write(str1 + str2);
       document.close();
@@ -596,7 +596,7 @@ function calccare(onlyone)
       if (onlyone)
          str2 += "All of the " + (nconsider == numtocand.length ? "" : "remaining ") +
                  "candidates have equal first-rank totals, so a random-ballot tiebreaker must be used:</p>\n" +
-                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak() + "</p>\n" +
+                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak(tbtonum) + "</p>\n" +
                  "<p><span class=\"cand\">" + result.winner + "</span> is the highest of them in the tiebreaking ranking and so wins the election.</p>\n";
    }
    else
@@ -609,7 +609,7 @@ function calccare(onlyone)
    if (onlyone)
    {
       str1 += "<table border cellpadding=3><tr><td><span class=\"cand\">" + result.winner + "</span> wins the Carey election" +
-              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak() : "") + ".</td></tr></table>\n";
+              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak(tbtonum) : "") + ".</td></tr></table>\n";
       str2 += "</body></html>";
       document.write(str1 + str2);
       document.close();
@@ -696,7 +696,7 @@ function calccoom(onlyone)
                   str2 += "<span class=\"cand\">" + numtocand[elimset[i]] + "</span>" +
                           (i == elimset.length - 2 ? " and " : i == elimset.length - 1 ? "" : ", ");
             str2 += " have equally largest last-rank totals, so a random-ballot tiebreaker must be used:</p>\n" +
-                    "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak() + "</p>\n" +
+                    "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak(tbtonum) + "</p>\n" +
                     "<p><span class=\"cand\">" + numtocand[elim] + "</span> is the lowest of them in the tiebreaking ranking and so is eliminated.</p>\n";
          }
       }
@@ -715,7 +715,7 @@ function calccoom(onlyone)
    if (onlyone)
    {
       str1 += "<table border cellpadding=3><tr><td><span class=\"cand\">" + result.winner + "</span> wins the Coombs election" +
-              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak() : "") + ".</td></tr></table>\n";
+              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak(tbtonum) : "") + ".</td></tr></table>\n";
       str2 += "<p><span class=\"cand\">" + result.winner + "</span> is the only remaining candidate and so wins the election.</p>\n" +
               "</body></html>";
       document.write(str1 + str2);
@@ -791,14 +791,14 @@ function calccope(onlyone)
                str2 += "<span class=\"cand\">" + numtocand[winset[i]] + "</span>" +
                        (i == winset.length - 2 ? " and " : i == winset.length - 1 ? "" : ", ");
          str2 += " have equally best Copeland scores, so a random-ballot tiebreaker must be used:</p>\n" +
-                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak() + "</p>\n" +
+                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak(tbtonum) + "</p>\n" +
                  "<p><span class=\"cand\">" + result.winner + "</span> is the highest of them in the tiebreaking ranking and so wins the election.</p>\n";
       }
    }
    if (onlyone)
    {
       str1 += "<table border cellpadding=3><tr><td><span class=\"cand\">" + result.winner + "</span> wins the Copeland election" +
-              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak() : "") + ".</td></tr></table>\n";
+              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak(tbtonum) : "") + ".</td></tr></table>\n";
       str2 += "</body></html>";
       document.write(str1 + str2);
       document.close();
@@ -869,14 +869,14 @@ function calcdodg(onlyone)
                str2 += "<span class=\"cand\">" + numtocand[winset[i]] + "</span>" +
                        (i == winset.length - 2 ? " and " : i == winset.length - 1 ? "" : ", ");
          str2 += " have equally best Dodgson scores, so a random-ballot tiebreaker must be used:</p>\n" +
-                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak() + "</p>\n" +
+                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak(tbtonum) + "</p>\n" +
                  "<p><span class=\"cand\">" + result.winner + "</span> is the highest of them in the tiebreaking ranking and so wins the election.</p>\n";
       }
    }
    if (onlyone)
    {
       str1 += "<table border cellpadding=3><tr><td><span class=\"cand\">" + result.winner + "</span> wins the Dodgson election" +
-              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak() : "") + ".</td></tr></table>\n";
+              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak(tbtonum) : "") + ".</td></tr></table>\n";
       str2 += "</body></html>";
       document.write(str1 + str2);
       document.close();
@@ -978,7 +978,7 @@ function calchare(onlyone)
                      str2 += "<span class=\"cand\">" + numtocand[elimset[i]] + "</span>" +
                              (i == elimset.length - 2 ? " and " : i == elimset.length - 1 ? "" : ", ");
                str2 += " have equally smallest first-rank totals, so a random-ballot tiebreaker must be used:</p>\n" +
-                       "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak() + "</p>\n" +
+                       "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak(tbtonum) + "</p>\n" +
                        "<p><span class=\"cand\">" + numtocand[elim] +
                        "</span> is the lowest of them in the tiebreaking ranking and so is eliminated.</p>\n";
             }
@@ -999,7 +999,7 @@ function calchare(onlyone)
    if (onlyone)
    {
       str1 += "<table border cellpadding=3><tr><td><span class=\"cand\">" + result.winner + "</span> wins the Hare election" +
-              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak() : "") + ".</td></tr></table>\n";
+              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak(tbtonum) : "") + ".</td></tr></table>\n";
       str2 += "<p><span class=\"cand\">" + result.winner + "</span> is the only remaining candidate and so wins the election.</p>\n" +
               "</body></html>";
       document.write(str1 + str2);
@@ -1112,14 +1112,14 @@ function calchare(onlyone)
                str2 += "<span class=\"cand\">" + numtocand[winset[i]] + "</span>" +
                        (i == winset.length - 2 ? " and " : i == winset.length - 1 ? "" : ", ");
          str2 += " lose no beatpath comparisons, so a random-ballot tiebreaker must be used:</p>\n" +
-                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak() + "</p>\n" +
+                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak(tbtonum) + "</p>\n" +
                  "<p><span class=\"cand\">" + result.winner + "</span> is the highest of them in the tiebreaking ranking and so wins the election.</p>\n";
       }
    }
    if (onlyone)
    {
       str1 += "<table border cellpadding=3><tr><td><span class=\"cand\">" + result.winner + "</span> wins the LeGrand election" +
-              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak() : "") + ".</td></tr></table>\n";
+              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak(tbtonum) : "") + ".</td></tr></table>\n";
       str2 += "</body></html>";
       document.write(str1 + str2);
       document.close();
@@ -1211,7 +1211,7 @@ function calcnans(onlyone)
       if (onlyone)
          str2 += "All of the " + (nconsider == numtocand.length ? "" : "remaining ") +
                  "candidates have equal Borda scores, so a random-ballot tiebreaker must be used:</p>\n" +
-                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak() + "</p>\n" +
+                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak(tbtonum) + "</p>\n" +
                  "<p><span class=\"cand\">" + result.winner + "</span> is the highest of them in the tiebreaking ranking and so wins the election.</p>\n";
    }
    else
@@ -1224,7 +1224,7 @@ function calcnans(onlyone)
    if (onlyone)
    {
       str1 += "<table border cellpadding=3><tr><td><span class=\"cand\">" + result.winner + "</span> wins the Nanson election" +
-              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak() : "") + ".</td></tr></table>\n";
+              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak(tbtonum) : "") + ".</td></tr></table>\n";
       str2 += "</body></html>";
       document.write(str1 + str2);
       document.close();
@@ -1308,7 +1308,7 @@ function calcrayn(onlyone)
                   str2 += "<span class=\"cand\">" + numtocand[elimset[i]] + "</span>" +
                           (i == elimset.length - 2 ? " and " : i == elimset.length - 1 ? "" : ", ");
             str2 += " have equally worst Simpson scores, so a random-ballot tiebreaker must be used:</p>\n" +
-                    "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak() + "</p>\n" +
+                    "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak(tbtonum) + "</p>\n" +
                     "<p><span class=\"cand\">" + numtocand[elim] + "</span> is the lowest of them in the tiebreaking ranking and so is eliminated.</p>\n";
          }
       }
@@ -1327,7 +1327,7 @@ function calcrayn(onlyone)
    if (onlyone)
    {
       str1 += "<table border cellpadding=3><tr><td><span class=\"cand\">" + result.winner + "</span> wins the Raynaud election" +
-              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak() : "") + ".</td></tr></table>\n";
+              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak(tbtonum) : "") + ".</td></tr></table>\n";
       str2 += "<p><span class=\"cand\">" + result.winner + "</span> is the only remaining candidate and so wins the election.</p>\n" +
               "</body></html>";
       document.write(str1 + str2);
@@ -1422,14 +1422,14 @@ function calcschu(onlyone)
                str2 += "<span class=\"cand\">" + numtocand[winset[i]] + "</span>" +
                        (i == winset.length - 2 ? " and " : i == winset.length - 1 ? "" : ", ");
          str2 += " lose no beatpath comparisons, so a random-ballot tiebreaker must be used:</p>\n" +
-                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak() + "</p>\n" +
+                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak(tbtonum) + "</p>\n" +
                  "<p><span class=\"cand\">" + result.winner + "</span> is the highest of them in the tiebreaking ranking and so wins the election.</p>\n";
       }
    }
    if (onlyone)
    {
       str1 += "<table border cellpadding=3><tr><td><span class=\"cand\">" + result.winner + "</span> wins the Schulze election" +
-              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak() : "") + ".</td></tr></table>\n";
+              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak(tbtonum) : "") + ".</td></tr></table>\n";
       str2 += "</body></html>";
       document.write(str1 + str2);
       document.close();
@@ -1501,14 +1501,14 @@ function calcsimp(onlyone)
                str2 += "<span class=\"cand\">" + numtocand[winset[i]] + "</span>" +
                        (i == winset.length - 2 ? " and " : i == winset.length - 1 ? "" : ", ");
          str2 += " have equally best Simpson scores, so a random-ballot tiebreaker must be used:</p>\n" +
-                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak() + "</p>\n" +
+                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak(tbtonum) + "</p>\n" +
                  "<p><span class=\"cand\">" + result.winner + "</span> is the highest of them in the tiebreaking ranking and so wins the election.</p>\n";
       }
    }
    if (onlyone)
    {
       str1 += "<table border cellpadding=3><tr><td><span class=\"cand\">" + result.winner + "</span> wins the Simpson election" +
-              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak() : "") + ".</td></tr></table>\n";
+              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak(tbtonum) : "") + ".</td></tr></table>\n";
       str2 += "</body></html>";
       document.write(str1 + str2);
       document.close();
@@ -1607,7 +1607,7 @@ function calcsmal(onlyone)
       if (onlyone)
          str2 += "All of the " + (nconsider == numtocand.length ? "" : "remaining ") +
                  "candidates have equal Copeland scores, so a random-ballot tiebreaker must be used:</p>\n" +
-                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak() + "</p>\n" +
+                 "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak(tbtonum) + "</p>\n" +
                  "<p><span class=\"cand\">" + result.winner + "</span> is the highest of them in the tiebreaking ranking and so wins the election.</p>\n";
    }
    else
@@ -1620,7 +1620,7 @@ function calcsmal(onlyone)
    if (onlyone)
    {
       str1 += "<table border cellpadding=3><tr><td><span class=\"cand\">" + result.winner + "</span> wins the Small election" +
-              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak() : "") + ".</td></tr></table>\n";
+              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak(tbtonum) : "") + ".</td></tr></table>\n";
       str2 += "</body></html>";
       document.write(str1 + str2);
       document.close();
@@ -1707,7 +1707,7 @@ bigloop:
                         str2 += "<span class=\"cand\">" + numtocand[i] + "&gt;" + numtocand[j] + "</span>" +
                                 (--nclear > 1 ? ", " : nclear > 0 ? " and " : " have a strength of ");
                str2 += (highest % 2 == 1 ? (highest - 1) / 2 + "&frac12;" : highest / 2) + ", so a random-ballot tiebreaker must be used:</p>\n" +
-                       "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak() + "</p>\n";
+                       "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + printtiebreak(tbtonum) + "</p>\n";
             }
             loser = new Array();
             for (i in numtocand)
@@ -1808,7 +1808,7 @@ findloop:
    if (onlyone)
    {
       str1 += "<table border cellpadding=3><tr><td><span class=\"cand\">" + result.winner + "</span> wins the Tideman election" +
-              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak() : "") + ".</td></tr></table>\n";
+              (result.tiebreak ? " using the tiebreaking ranking " + printtiebreak(tbtonum) : "") + ".</td></tr></table>\n";
       str2 += "</body></html>";
       document.write(str1 + str2);
       document.close();
@@ -1890,17 +1890,15 @@ function printrvote(consider)
    }
    return str + "</table></p>\n";
 }
-function printtiebreak()
-{
-   var i, str = "<span class=\"cand\">";
-   for (i in tbtonum)
-   {
-      if (i > 0)
-         str += "&gt;";
-      str += numtocand[tbtonum[i]];
-   }
-   return str + "</span>";
-}
+
+const printtiebreak = (tbtonum) => (
+   '<span class="cand">'
+   + tbtonum.map(
+      num => numtocand[num]
+   ).join('&gt;')
+   + '</span>'
+);
+
 function readvotes()
 {
    var absent, beat = new Array(), i, ignoreinput, j, k, l, nextcand, rating = new Array(), regexp = new RegExp(), rvotecomment, rvoteinput,
