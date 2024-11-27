@@ -1859,37 +1859,44 @@ function printpmatrix(pmatrix, consider)
       }
    return str + "</table></p>\n";
 }
-function printrvote(consider)
-{
-   var i, j, nconsider = 0, str;
-   if (typeof consider != "object")
-   {
-      consider = new Array();
-      for (i in numtocand)
-         consider[consider.length] = true;
+
+const printrvote = function (consider) {
+   if (typeof consider !== 'object') {
+      consider = numtocand.map(
+         () => true
+      );
    }
-   for (i in consider)
-      if (consider[i])
-         ++nconsider;
-   if (nconsider == 0)
-      return "<p><em>Error!&nbsp; No candidate left!</em></p>";
-   else if (nconsider == 1)
-      return "<p><em>Error!&nbsp; Only one candidate left!</em></p>";
-   str = "<p><table border=0 cellpadding=0 cellspacing=0>\n";
-   for (i in rvote)
-   {
-      str += "<tr align=\"right\"><td><span class=\"cand\">" + rvotenum[i] + ":";
-      for (j in rvotetie[i])
-         if (consider[rvote[i][j]])
-            str += numtocand[rvote[i][j]] + (rvotetie[i][j] ? "=" : "&gt;");
-      if (consider[rvote[i][rvote[i].length - 1]])
-         str += numtocand[rvote[i][rvote[i].length - 1]];
-      else
-         str = str.replace(/&gt;$/, "");
-      str += "</span></td></tr>\n";
-   }
-   return str + "</table></p>\n";
-}
+   const nconsider = consider.filter(
+      (x) => x
+   ).length;
+   return (
+      nconsider == 0
+      ? '<p><em>Error!&nbsp; No candidate left!</em></p>'
+      : nconsider == 1
+      ? '<p><em>Error!&nbsp; Only one candidate left!</em></p>'
+      : (
+         '<p><table border="0" cellpadding="0" cellspacing="0">\n'
+         + rvote.map(
+            (ballot, i) => (
+               '<tr align="right"><td><span class="cand">' + rvotenum[i] + ':'
+               + ballot.map(
+                  (rank, j) => (
+                     consider[rank]
+                     ? numtocand[rank] + (
+                        j >= rvotetie[i].length
+                        ? ''
+                        : rvotetie[i][j]
+                        ? '='
+                        : '&gt;'
+                     )
+                     : ''
+                  )
+               ).join('') + '</span></td></tr>\n'
+            )
+         ).join('')
+      ) + '</table></p>\n'
+   );
+};
 
 const printtiebreak = (tbtonum) => (
    '<span class="cand">'
