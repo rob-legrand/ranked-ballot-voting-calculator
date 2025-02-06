@@ -1,2 +1,2 @@
 # ranked-ballot-voting-calculator
-Use this calculator to find the winner of an election using ranked ballots.
+This calculator accepts ranked ballots and finds the winner of an election according to various voting systems.
