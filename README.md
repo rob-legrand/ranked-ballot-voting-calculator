@@ -1,2 +1,3 @@
 # ranked-ballot-voting-calculator
-This calculator accepts ranked ballots and finds the winner of an election according to various voting systems.
+This calculator accepts ranked ballots and finds the winner of an election according to various voting systems.&nbsp;
+Give it a try:&nbsp; <https://rob-legrand.github.io/rbvote/>
